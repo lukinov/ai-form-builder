@@ -1,0 +1,32 @@
+name: validate-examples
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate every example schema
+        run: |
+          set -e
+          for f in examples/*/form.json; do
+            echo "=== $f ==="
+            python skills/ai-form-builder/scripts/validate_schema.py "$f" --no-color
+          done
+
+      - name: Validate plugin manifest is valid JSON
+        run: python -c "import json; json.load(open('.claude-plugin/plugin.json'))"
+
+      - name: Validate marketplace manifest is valid JSON
+        run: python -c "import json; json.load(open('.claude-plugin/marketplace.json'))"

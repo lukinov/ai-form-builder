@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "tooltipType": "RsTooltip",
+  "errorType": "RsErrorMessage",
+  "form": {
+    "type": "Screen",
+    "key": "survey",
+    "children": [
+      {
+        "type": "RsCard",
+        "key": "card",
+        "props": { "header": { "value": "Quick survey" } },
+        "children": [
+          {
+            "type": "RsRate",
+            "key": "satisfaction",
+            "props": {
+              "label": { "value": "How satisfied are you with the product?" },
+              "max": { "value": 5 }
+            },
+            "schema": { "validations": [{ "key": "required" }] }
+          },
+          {
+            "type": "RsTextArea",
+            "key": "lowRatingReason",
+            "props": {
+              "label": { "value": "What's letting you down?" },
+              "rows": { "value": 3 },
+              "placeholder": { "value": "Be specific — we're listening" }
+            },
+            "renderWhen": { "jsCode": "data.satisfaction && data.satisfaction <= 3" },
+            "validateWhen": { "jsCode": "data.satisfaction && data.satisfaction <= 3" },
+            "schema": {
+              "validations": [
+                { "key": "required" },
+                { "key": "min", "args": { "limit": 10 }, "message": "Tell us a bit more (10+ chars)" }
+              ]
+            }
+          },
+          {
+            "type": "RsCheckbox",
+            "key": "heardElsewhere",
+            "props": { "label": { "value": "I first heard about you from another source" } }
+          },
+          {
+            "type": "RsDropdown",
+            "key": "source",
+            "props": {
+              "label": { "value": "Where did you hear about us?" },
+              "data": {
+                "value": [
+                  { "label": "Twitter / X", "value": "twitter" },
+                  { "label": "Hacker News", "value": "hn" },
+                  { "label": "Reddit", "value": "reddit" },
+                  { "label": "Product Hunt", "value": "ph" },
+                  { "label": "A friend / colleague", "value": "friend" },
+                  { "label": "Search engine", "value": "search" },
+                  { "label": "Other", "value": "other" }
+                ]
+              }
+            },
+            "renderWhen": { "jsCode": "data.heardElsewhere === true" },
+            "validateWhen": { "jsCode": "data.heardElsewhere === true" },
+            "schema": { "validations": [{ "key": "required" }] }
+          },
+          {
+            "type": "RsTextArea",
+            "key": "comments",
+            "props": {
+              "label": { "value": "Anything else? (optional)" },
+              "rows": { "value": 3 }
+            }
+          },
+          {
+            "type": "RsButton",
+            "key": "submit",
+            "props": {
+              "appearance": { "value": "primary" },
+              "children": { "value": "Submit feedback" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

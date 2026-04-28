@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "tooltipType": "RsTooltip",
+  "errorType": "RsErrorMessage",
+  "form": {
+    "type": "Screen",
+    "key": "onboarding",
+    "children": [
+      {
+        "type": "RsWizard",
+        "key": "wizard",
+        "children": [
+          {
+            "type": "RsWizardStep",
+            "key": "step-account",
+            "props": { "title": { "value": "Account" } },
+            "children": [
+              {
+                "type": "RsInput",
+                "key": "email",
+                "props": {
+                  "label": { "value": "Work email" },
+                  "type": { "value": "email" }
+                },
+                "schema": { "validations": [{ "key": "required" }, { "key": "email" }] }
+              },
+              {
+                "type": "RsInput",
+                "key": "password",
+                "props": {
+                  "label": { "value": "Password" },
+                  "type": { "value": "password" }
+                },
+                "schema": {
+                  "validations": [
+                    { "key": "required" },
+                    { "key": "min", "args": { "limit": 10 }, "message": "10+ characters" }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "RsWizardStep",
+            "key": "step-company",
+            "props": { "title": { "value": "Company" } },
+            "children": [
+              {
+                "type": "RsInput",
+                "key": "companyName",
+                "props": { "label": { "value": "Company name" } },
+                "schema": { "validations": [{ "key": "required" }] }
+              },
+              {
+                "type": "RsDropdown",
+                "key": "industry",
+                "props": {
+                  "label": { "value": "Industry" },
+                  "data": {
+                    "value": [
+                      { "label": "SaaS", "value": "saas" },
+                      { "label": "E-commerce", "value": "ecom" },
+                      { "label": "Fintech", "value": "fintech" },
+                      { "label": "Healthcare", "value": "health" },
+                      { "label": "Education", "value": "edu" },
+                      { "label": "Other", "value": "other" }
+                    ]
+                  }
+                },
+                "schema": { "validations": [{ "key": "required" }] }
+              },
+              {
+                "type": "RsDropdown",
+                "key": "teamSize",
+                "props": {
+                  "label": { "value": "Team size" },
+                  "data": {
+                    "value": [
+                      { "label": "Just me", "value": "1" },
+                      { "label": "2–10", "value": "2-10" },
+                      { "label": "11–50", "value": "11-50" },
+                      { "label": "51–200", "value": "51-200" },
+                      { "label": "200+", "value": "200+" }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "RsWizardStep",
+            "key": "step-prefs",
+            "props": { "title": { "value": "Preferences" } },
+            "children": [
+              {
+                "type": "RsCheckboxGroup",
+                "key": "channels",
+                "props": {
+                  "label": { "value": "How would you like to be notified?" },
+                  "data": {
+                    "value": [
+                      { "label": "Email", "value": "email" },
+                      { "label": "Slack", "value": "slack" },
+                      { "label": "In-app only", "value": "in_app" }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "RsToggle",
+                "key": "marketingOptIn",
+                "props": { "label": { "value": "Send me product updates and tips" } }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

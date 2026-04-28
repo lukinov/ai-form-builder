@@ -1,0 +1,25 @@
+{
+  "name": "optimajet",
+  "owner": {
+    "name": "Optimajet",
+    "url": "https://formengine.io"
+  },
+  "plugins": [
+    {
+      "name": "ai-form-builder",
+      "source": ".",
+      "description": "Generate React forms from screenshots, PDFs, HTML, or text — outputs FormEngine JSON schema + runnable React code.",
+      "version": "0.1.0",
+      "category": "frontend",
+      "tags": [
+        "ai-form-builder",
+        "react",
+        "form-generator",
+        "json-schema-form",
+        "formengine"
+      ],
+      "homepage": "https://github.com/optimajet/ai-form-builder",
+      "license": "MIT"
+    }
+  ]
+}

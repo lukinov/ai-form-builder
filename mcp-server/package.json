@@ -1,0 +1,30 @@
+{
+  "name": "@formengine/mcp-server",
+  "version": "0.0.1-roadmap",
+  "private": true,
+  "description": "MCP server (roadmap, not yet shipped) — exposes generate_form / validate_schema / list_components tools backed by FormEngine.",
+  "type": "module",
+  "bin": {
+    "formengine-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "modelcontextprotocol",
+    "ai-form-builder",
+    "formengine",
+    "react",
+    "form-generator"
+  ],
+  "license": "MIT",
+  "author": "Optimajet",
+  "homepage": "https://github.com/optimajet/ai-form-builder/tree/main/mcp-server",
+  "repository": "github:optimajet/ai-form-builder",
+  "engines": {
+    "node": ">=18"
+  }
+}

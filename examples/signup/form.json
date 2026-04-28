@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "tooltipType": "RsTooltip",
+  "errorType": "RsErrorMessage",
+  "form": {
+    "type": "Screen",
+    "key": "signup",
+    "children": [
+      {
+        "type": "RsCard",
+        "key": "card",
+        "props": { "header": { "value": "Create your account" } },
+        "children": [
+          {
+            "type": "RsContainer",
+            "key": "name-row",
+            "css": { "any": { "object": { "display": "flex", "gap": "16px" } } },
+            "children": [
+              {
+                "type": "RsInput",
+                "key": "firstName",
+                "props": { "label": { "value": "First name" } },
+                "wrapperCss": { "any": { "object": { "flex": "1" } } },
+                "schema": { "validations": [{ "key": "required" }] }
+              },
+              {
+                "type": "RsInput",
+                "key": "lastName",
+                "props": { "label": { "value": "Last name" } },
+                "wrapperCss": { "any": { "object": { "flex": "1" } } },
+                "schema": { "validations": [{ "key": "required" }] }
+              }
+            ]
+          },
+          {
+            "type": "RsInput",
+            "key": "email",
+            "props": {
+              "label": { "value": "Email" },
+              "type": { "value": "email" },
+              "placeholder": { "value": "you@example.com" }
+            },
+            "schema": { "validations": [{ "key": "required" }, { "key": "email" }] }
+          },
+          {
+            "type": "RsInput",
+            "key": "password",
+            "props": {
+              "label": { "value": "Password" },
+              "type": { "value": "password" }
+            },
+            "schema": {
+              "validations": [
+                { "key": "required" },
+                { "key": "min", "args": { "limit": 8 }, "message": "At least 8 characters" }
+              ]
+            }
+          },
+          {
+            "type": "RsInput",
+            "key": "confirmPassword",
+            "props": {
+              "label": { "value": "Confirm password" },
+              "type": { "value": "password" }
+            },
+            "schema": { "validations": [{ "key": "required" }] }
+          },
+          {
+            "type": "RsCheckbox",
+            "key": "tos",
+            "props": { "label": { "value": "I agree to the Terms of Service and Privacy Policy" } },
+            "schema": {
+              "validations": [
+                { "key": "truthy", "message": "You must agree to the Terms to continue" }
+              ]
+            }
+          },
+          {
+            "type": "RsButton",
+            "key": "submit",
+            "props": {
+              "appearance": { "value": "primary" },
+              "block": { "value": true },
+              "children": { "value": "Create account" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

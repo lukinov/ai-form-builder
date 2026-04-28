@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "tooltipType": "RsTooltip",
+  "errorType": "RsErrorMessage",
+  "form": {
+    "type": "Screen",
+    "key": "contact",
+    "children": [
+      {
+        "type": "RsCard",
+        "key": "card",
+        "props": { "header": { "value": "Get in touch" } },
+        "children": [
+          {
+            "type": "RsStaticContent",
+            "key": "intro",
+            "props": {
+              "content": {
+                "value": "Drop us a note and we'll respond within one business day."
+              }
+            }
+          },
+          {
+            "type": "RsInput",
+            "key": "name",
+            "props": { "label": { "value": "Your name" } },
+            "schema": { "validations": [{ "key": "required" }] }
+          },
+          {
+            "type": "RsInput",
+            "key": "email",
+            "props": {
+              "label": { "value": "Email" },
+              "type": { "value": "email" },
+              "placeholder": { "value": "you@example.com" }
+            },
+            "schema": { "validations": [{ "key": "required" }, { "key": "email" }] }
+          },
+          {
+            "type": "RsInput",
+            "key": "subject",
+            "props": { "label": { "value": "Subject" } },
+            "schema": { "validations": [{ "key": "required" }] }
+          },
+          {
+            "type": "RsTextArea",
+            "key": "message",
+            "props": {
+              "label": { "value": "Message" },
+              "rows": { "value": 5 },
+              "placeholder": { "value": "Tell us a bit about what you're working on..." }
+            },
+            "schema": {
+              "validations": [
+                { "key": "required" },
+                {
+                  "key": "min",
+                  "args": { "limit": 20 },
+                  "message": "Tell us a bit more (20+ characters)"
+                }
+              ]
+            }
+          },
+          {
+            "type": "RsButton",
+            "key": "send",
+            "props": {
+              "appearance": { "value": "primary" },
+              "children": { "value": "Send message" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

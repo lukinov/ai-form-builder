@@ -1,0 +1,25 @@
+{
+  "name": "ai-form-builder",
+  "version": "0.1.0",
+  "description": "Generate production-ready React forms from screenshots, PDFs, HTML, or text prompts. Outputs portable FormEngine JSON schema + runnable React code. MIT.",
+  "author": {
+    "name": "Optimajet",
+    "url": "https://formengine.io"
+  },
+  "homepage": "https://github.com/optimajet/ai-form-builder",
+  "repository": "https://github.com/optimajet/ai-form-builder",
+  "license": "MIT",
+  "keywords": [
+    "ai-form-builder",
+    "react",
+    "react-form-builder",
+    "form-generator",
+    "json-schema-form",
+    "formengine",
+    "claude-skill",
+    "screenshot-to-form"
+  ],
+  "skills": [
+    "./skills/ai-form-builder"
+  ]
+}
